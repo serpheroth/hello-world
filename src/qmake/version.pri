@@ -5,7 +5,7 @@
 # variable 'Path'
 
 #
-# NOTE: All paths are relative to the including project files!
+# NOTE: All paths are relative to the including project file!
 
 # we will generate a header file in $$OUT_PWD, so include it in search paths
 INCLUDEPATH += $$OUT_PWD
@@ -13,7 +13,7 @@ DEPENDPATH += $$OUT_PWD
 
 # magically create version.h with subversion number
 version.target = $$OUT_PWD/buildtag.h
-version.commands = @bash -c \'mkdir -p \"$$OUT_PWD\"; bash \"$$_PRO_FILE_PWD_/../bin/create-buildtag.sh\" \"$$version.target\"\'
+version.commands = @bash -c \'mkdir -p \"$$OUT_PWD\"; bash \"$$_PRO_FILE_PWD_/../../bin/create-buildtag.sh\" \"$$version.target\"\'
 version.depends = checkalways	# ensure this is always made
 
 # the target 'checkalways' just prints a build info

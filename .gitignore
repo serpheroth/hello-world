@@ -12,6 +12,6 @@
 *.la
 *.a
 
-# Qt creator user settings
+# Qt creator user settings and temporary files
 *.pro.user
-
+*.autosave
