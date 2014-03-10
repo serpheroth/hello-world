@@ -7,8 +7,8 @@
 # this project. Specify the libraries you need to depend on in the variable
 # DEPENDENCY_LIBRARIES and this will add them to the necessary variables in
 # the required format.
-# On windows and for MinGW kit, qmake currently generates another level of debug/release subdirs, grrr
-win32-g++ {
+# On Windows for MinGW and MSVC kits, qmake generates another level of debug/release subdirs, grrr
+win32 {
     CONFIG(debug, debug|release): subdir = debug/
     CONFIG(release, debug|release): subdir = release/
 } else {
