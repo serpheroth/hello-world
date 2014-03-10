@@ -1,5 +1,5 @@
 // A sample unit test
-// Copyright   : This file is in the public domain
+// Copyright: This file is in the public domain
 
 #include "AutoTest.h"
 
@@ -11,8 +11,8 @@ class TestQString: public QObject
     void toUpper()
     {
       // 1. setup
-      // 2. execute
       QString str = "Hello";
+      // 2. execute
       // 3. check
       QCOMPARE(str.toUpper(), QString("HELLO"));
       // 4. teardown

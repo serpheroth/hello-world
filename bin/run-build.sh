@@ -31,6 +31,15 @@ which qmake >/dev/null || \
 addpath $PWD/bin
 echo "PATH=$PATH"
 
+# tell make to run simulataneous jobs on multiprocessor systems
+# (make option "-j2" on two processor systems etc.)
+# maybe you can force qmake doing this
+if [ -x /usr/bin/getconf ]; then
+	MAKEFLAGS="${MAKEFLAGS}${MAKEFLAGS:+" "}j$(/usr/bin/getconf _NPROCESSORS_ONLN)"
+	export MAKEFLAGS
+fi
+
+
 MAKE=make
 QMAKE=qmake
 OSTYPE=$(uname -s | tr [:upper:] [:lower:])
