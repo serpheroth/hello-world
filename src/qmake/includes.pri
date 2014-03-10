@@ -1,6 +1,4 @@
-# qmake project includes for include paths etc.
-
-include(common.pri)
+# qmake project include file for library dependencies
 
 # The following part was inspired
 # from http://stackoverflow.com/questions/2288292/qmake-project-dependencies-linked-libraries
@@ -9,6 +7,7 @@ include(common.pri)
 # this project.  Specify the libraries you need to depend on in the variable
 # DEPENDENCY_LIBRARIES and this will add.
 for(dep, DEPENDENCY_LIBRARIES) {
-    LIBS += $${DESTDIR}/$${QMAKE_PREFIX_STATICLIB}$${dep}.$${QMAKE_EXTENSION_STATICLIB}
-    PRE_TARGETDEPS += $${DESTDIR}/$${QMAKE_PREFIX_STATICLIB}$${dep}.$${QMAKE_EXTENSION_STATICLIB}
+    deplib = ../$${dep}/$${QMAKE_PREFIX_STATICLIB}$${dep}.$${QMAKE_EXTENSION_STATICLIB}
+    LIBS += $$deplib
+    PRE_TARGETDEPS += $$deplib
 }

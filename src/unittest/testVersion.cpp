@@ -9,6 +9,7 @@ using namespace std;
 class TestVersionOutput: public QObject
 {
     Q_OBJECT
+
   private slots:
     void printSubversionRevision()
     {
