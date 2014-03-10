@@ -6,7 +6,6 @@ TEMPLATE = lib
 QT -= gui
 
 CONFIG += staticlib
-CONFIG += debug
 
 HEADERS += appVersion.h
 SOURCES += appVersion.cpp

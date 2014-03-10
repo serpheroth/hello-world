@@ -9,7 +9,6 @@ QT -= gui
 
 CONFIG += console
 CONFIG -= app_bundle    # for Mac users
-CONFIG += debug
 CONFIG += testcase      # adds make target for 'make check'
 
 HEADERS += \
