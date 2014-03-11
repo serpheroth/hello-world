@@ -23,5 +23,5 @@ SUBDIRS = app-lib \
 app-main.depends = app-lib
 unittest.depends = app-lib
 
-OTHER_FILES += ../README.txt ../README.md \
+OTHER_FILES += ../README.md \
     ../bin/run-build.sh
