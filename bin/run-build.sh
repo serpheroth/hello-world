@@ -4,6 +4,8 @@
 set -x
 set -e
 
+PROJFILE=../src/hello.pro	# relative to build directory
+
 # Warning: PATH could miss /usr/bin etc. (especially on Windows with Cygwin!)
 addpath() {
     set +x
@@ -22,11 +24,12 @@ which qmake >/dev/null || \
 	# on some systems, Qt installation may be $HOME
 	# Linux: usually installed in /opt/Qt ....
 	# Windows: usually installed in /c/Qt resp. /cygdrive/c/Qt
+	#          we have to limit to mingw on Windows
 	addpath $(ls -d \
 		$HOME/Qt*/*/*/bin \
 		/opt/Qt/*/*/bin \
-		/c/Qt/*/*/bin \
-		/cygdrive/c/Qt/*/*/bin \
+		/c/Qt/*/mingw*/bin \
+		/cygdrive/c/Qt/*/mingw*/bin \
 		2>/dev/null)
 addpath $PWD/bin
 echo "PATH=$PATH"
@@ -57,5 +60,5 @@ case "$OSTYPE" in
 esac
 
 cd build
-$QMAKE ../src/hello.pro
+$QMAKE $PROJFILE
 $MAKE
