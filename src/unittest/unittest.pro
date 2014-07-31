@@ -1,14 +1,14 @@
 # this qmake project file generates the unit test application
 
-TARGET = unit-test
 TEMPLATE = app
+TARGET = unit-test      # defaults to basename of project file, but need different name
+DESTDIR = ..            # want to have it in the build dir, not in my subdir there
 
 QT += testlib
 QT -= gui
 
 CONFIG += console
 CONFIG -= app_bundle    # for Mac users
-CONFIG += debug
 CONFIG += testcase      # adds make target for 'make check'
 
 HEADERS += \
@@ -22,5 +22,5 @@ SOURCES += \
 DEPENDENCY_LIBRARIES += \
     app-lib \
 
+include(../qmake/common.pri)
 include(../qmake/includes.pri)
-include(../qmake/version.pri)

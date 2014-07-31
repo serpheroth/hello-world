@@ -11,7 +11,7 @@ TMPFILE=$TARGET.$$.tmp
 
 REPO_VERSION=$(git describe --tags --always --dirty)
 
-# if built from jenkins/hudson, variable is defined already
+# if built from jenkins/hudson, BUILD_TAG is set already
 if [ -z "$BUILD_TAG" ]; then
 	BUILD_TAG="manual build by $(id -un) on $(date +%F) version $REPO_VERSION"
 fi
@@ -23,11 +23,11 @@ cat > "$TMPFILE" <<-EOF
 EOF
 
 # if nothing changed, we keep the old file
-if cmp -s "$TARGET" "$TMPFILE"
+if cmp -s -- "$TARGET" "$TMPFILE"
 then
     echo "nothing changed"
-    rm "$TMPFILE"
+    rm -- "$TMPFILE"
 else
     echo "new version $SCM_REVISION"
-    mv "$TMPFILE" "$TARGET"
+    mv -- "$TMPFILE" "$TARGET"
 fi

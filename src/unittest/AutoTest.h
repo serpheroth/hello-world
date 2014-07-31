@@ -1,7 +1,7 @@
 #ifndef AUTOTEST_H
 #define AUTOTEST_H
 
-// This file was originally taken from the following URLs and slightly modified:
+// This file is a slight modification of the proposals at the following URLs:
 // http://qtcreator.blogspot.com/2009/10/running-multiple-unit-tests.html
 // http://qtcreator.blogspot.com/2010/04/sample-multiple-unit-test-project.html
 

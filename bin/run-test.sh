@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# simple "test" script - just calls the hello program
+# simple "test" script - just calls the unit-test and hello programs
 set -x
 set -e
 
@@ -18,17 +18,11 @@ addpath() {
     set -x
 }
 addpath /bin /usr/bin /usr/local/bin /opt/local/bin
+# On Windows, we also need to have the Qt mingw kit in the path,
+# otherwise libstdc++6 may not be found
+addpath /c/Qt/*/mingw*/bin /cygdrive/c/Qt/*/mingw*/bin 
 
 cd build
-find . -name hello\* -ls || true
+./hello && ./unit-test
 
-HELLO=./hello
-OSTYPE=$(uname -s | tr [:upper:] [:lower:])
-case "$OSTYPE" in
-    cygwin*)
-	HELLO=release/hello.exe
-	;;
-esac
-
-$HELLO
 exit $?		# just get another debug output with the exit code
