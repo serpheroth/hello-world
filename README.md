@@ -36,7 +36,11 @@ There is a small bash script available to run a simple build. Using the Unix ter
  * `build/hello` (`hello.exe` on Windows), the "application" program; just run it to see the version output.
  * `build/unit-test` (`unit-test.exe` on Windows), the unit test binary; just run it to see the tests pass.
 
+After building the executables, you may just `bin/run-test.sh` to execute the unit test (and the hello world).
+
 You may simply clean the `build` directory by e.g. `rm -r build/*` (be sure you know what you are doing ... removing files with the `*` wildcard always contains some risks in case of input errors ...).
+
+
 
 ### Building from the IDE ###
 Even simpler than building from the command line is using the `QtCreator` integrated development environment, which is contained in the Qt installation. Usually, QtCreator configures a "Debug" and a "Release" build in different build directories. Instead of using the default directories, you may change both to live inside the `build` subdirectory - but that's up to your choice.
